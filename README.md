@@ -62,13 +62,13 @@ npm run dev
 
 ---
 
-## 📌 3. 브랜치 전략
+## 📌 3. Git & 협업 가이드라인
 
+### 🌿 브랜치 전략
 > `main` 브랜치는 항상 배포 가능한 상태를 유지합니다.
 
 새로운 기능 개발 또는 버그 수정을 위해 `main` 브랜치에서 기능 브랜치를 분기합니다.
 
-### 🌿 브랜치명 규칙:
 - `feat/<기능-요약>`: 새로운 기능 개발 (예: `feat/login-page`, `feat/game-store`)
 - `fix/<버그-요약>`: 버그 수정 (예: `fix/layout-bug`, `fix/search-error`)
 - `refactor/<리팩토링-요약>`: 코드 구조 변경 및 리팩토링 (예: `refactor/hooks`)
