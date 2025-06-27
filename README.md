@@ -1,69 +1,114 @@
-# React + TypeScript + Vite
+# 🚀 Steam Lite BE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+본 문서는 [Steam_Lite] 프론트엔드 개발을 위한 가이드라인과 정보를 제공합니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 1. 프로젝트 개요
 
-## Expanding the ESLint configuration
+본 프로젝트는 사용자가 게임을 구매하고 다운로드하며, 자신의 라이브러리를 관리할 수 있는 웹 서비스의 프론트엔드를 구축하는 것을 목표로 합니다.  
+또한 친구 추가 및 리뷰 작성 등의 소셜 기능을 제공하며,  
+관리자 기능을 통해 게임 콘텐츠와 사용자 활동을 효율적으로 관리할 수 있습니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🧩 주요 기능
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| 분류         | 기능 설명                                   |
+|--------------|---------------------------------------------|
+| **회원 기능**   | 회원가입, 로그인/로그아웃, 내 정보 조회/변경 |
+| **게임 스토어** | 게임 목록/상세 조회, 게임 다운로드, 게임 검색 |
+| **라이브러리**  | 보유 게임 목록 조회, 게임 라이브러리 추가     |
+| **리뷰**       | 리뷰 작성, 조회, 삭제                         |
+| **친구 기능**   | 친구 목록 조회, 친구 요청, 받은 요청 관리, 친구의 라이브러리 조회 |
+| **관리자 기능** | 게임 등록/삭제/수정 화면, 유저/리뷰 관리 화면 |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+### ⚙️ 기술 스택 (Frontend)
+
+| 항목         | 내용                          |
+|--------------|-------------------------------|
+| **언어**       | TypeScript                    |
+| **프레임워크**   | React 18.x + Vite             |
+| **스타일링**     | Tailwind CSS 또는 Styled-Components |
+| **빌드 툴**     | Vite                          |
+| **품질 도구**    | ESLint, Prettier              |
+
+---
+
+## 📌 2. 개발 환경 설정
+
+### 🛠️ 필수 설치 도구
+- **Node.js 18.x 이상**
+- **npm (Node.js 설치 시 기본 포함)**
+- **선호하는 IDE (VSCode 권장)**
+
+### 💾 프로젝트 설정
+- **프로젝트 클론:**
+```bash
+git clone "https://github.com/slave-factory/steam-lite-fe.git"
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **패키지 설치:**
+```bash
+npm install
 ```
+
+- **개발 서버 실행:**
+```bash
+npm run dev
+```
+
+---
+
+### 🌿 브랜치 전략
+
+> `main` 브랜치는 항상 배포 가능한 상태를 유지합니다.
+
+새로운 기능 개발 또는 버그 수정을 위해 `main` 브랜치에서 기능 브랜치를 분기합니다.
+
+#### 브랜치명 규칙:
+- `feat/<기능-요약>`: 새로운 기능 개발 (예: `feat/login-page`, `feat/game-store`)
+- `fix/<버그-요약>`: 버그 수정 (예: `fix/layout-bug`, `fix/search-error`)
+- `refactor/<리팩토링-요약>`: 코드 구조 변경 및 리팩토링 (예: `refactor/hooks`)
+- `docs/<문서-요약>`: 문서 변경 (예: `docs/update-readme`)
+
+---
+
+### ✏️ 커밋 메시지 규칙
+
+**커밋 메시지**는 다음 형식에 따라 작성합니다:
+
+```
+<타입>: <설명>
+[본문] (선택)
+```
+
+- `<타입>`: `feat`, `fix`, `refactor`, `docs`, `test`, `build`, `ci`, `chore` 중 하나를 사용
+- `<설명>`: 50자 이내로 간결하게 작성하며 명령형 사용 (예: "로그인 페이지 구현", "검색 오류 수정")
+- `[본문]`: 선택, 상세 변경 내용과 설명 추가
+
+예시:
+```markdown
+feat: 로그인 페이지 UI 구현
+
+로그인 화면 마크업 및 기본 스타일 추가.
+- Tailwind CSS 적용
+- useState로 상태 관리
+- form validation 기본 구조 작성
+```
+
+---
+
+### 🔃 Pull Request (PR) 가이드라인
+
+새로운 기능 개발 또는 버그 수정 완료 후, 본인의 브랜치에서 `main` 브랜치로 PR을 생성합니다.
+
+PR 생성 시, 변경 사항에 대한 충분한 설명과 화면 캡처(필요 시)를 포함해주세요.
+
+모든 PR은 **Squash and Merge** 방식으로 `main` 브랜치에 병합됩니다.
+
+**코드 리뷰 승인 후에만** `main`에 병합할 수 있습니다.
+
+---
