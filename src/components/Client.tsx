@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Client() {
@@ -46,6 +45,9 @@ function Client() {
           }}
         />
       </SteamLogo>
+      <CartLink to="/cart">
+        <CartButton>카트</CartButton>
+      </CartLink>
       <FriendsSection>
         <FriendsBackground />
         <FriendsIcon>
@@ -554,6 +556,74 @@ const DropdownArrow = styled.div`
       width: 16px !important;
       height: 16px !important;
     }
+  }
+`;
+
+const CartLink = styled(Link)`
+  position: absolute;
+  right: 100px;
+  top: 15px;
+  z-index: 15;
+  text-decoration: none;
+
+  @media (max-width: 1440px) {
+    right: 80px;
+  }
+
+  @media (max-width: 1024px) {
+    right: 60px;
+    top: 12px;
+  }
+
+  @media (max-width: 768px) {
+    right: 50px;
+    top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    right: 40px;
+    top: 8px;
+  }
+`;
+
+const CartButton = styled.div`
+  background-color: var(--Color-Secondary, #4b619b);
+  color: var(--Text-Main, #f3f3f3);
+  padding: 8px 16px;
+  border-radius: var(--border-radius, 3px);
+  font:
+    700 14px Barlow,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background-color: #5a73b8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1024px) {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 `;
 
