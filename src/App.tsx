@@ -1,7 +1,8 @@
-import Client from "./components/Client";
+import React from 'react';
+import Cart from './components/Cart';
 
 function App() {
-  return <Client />;
+  return <Cart />;
 }
 
 export default App;
