@@ -117,7 +117,7 @@ const ClientContainer = styled.div`
   }
 `;
 
-const BackgroundImage = styled.img.attrs<{ image: string; altText: string }>(
+const BackgroundImage = styled.img.attrs<{ image: string, altText: string }>(
   props => ({
     src: props.image,
     alt: props.altText,
@@ -433,7 +433,7 @@ const UserContent = styled.div`
   }
 `;
 
-const UserAvatar = styled.img.attrs<{ image: string; altText: string }>(
+const UserAvatar = styled.img.attrs<{ image: string, altText: string }>(
   props => ({
     src: props.image,
     alt: props.altText,
