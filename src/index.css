@@ -15,8 +15,10 @@
   /* Steam client CSS variables */
   --Background-Main: #0e141b;
   --Background-Highlight: #1e2329;
+  --Background-Hover: #313843;
   --Text-Main: #f3f3f3;
   --Text-Dim: #76808c;
+  --Color-Secondary: #4b619b;
   --border-radius: 3px;
 }
 

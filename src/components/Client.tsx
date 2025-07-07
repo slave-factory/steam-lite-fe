@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Client() {
@@ -76,6 +77,7 @@ function Client() {
           </DropdownArrow>
         </UserContent>
       </UserSection>
+      <NavigationButton to="/login">로그인 페이지로 이동</NavigationButton>
     </ClientContainer>
   );
 }
@@ -554,6 +556,48 @@ const DropdownArrow = styled.div`
       width: 16px !important;
       height: 16px !important;
     }
+  }
+`;
+
+const NavigationButton = styled(Link)`
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  padding: 12px 24px;
+  background-color: var(--Background-Hover, #313843);
+  color: var(--Text-Main, #f3f3f3);
+  text-decoration: none;
+  border-radius: var(--border-radius, 3px);
+  font:
+    600 16px "Barlow",
+    sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background-color: #3a4451;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background-color: #2a3139;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 30px;
+    left: 30px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 20px;
+    left: 20px;
+    font-size: 12px;
+    padding: 8px 16px;
   }
 `;
 
