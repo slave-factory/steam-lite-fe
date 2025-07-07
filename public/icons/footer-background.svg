@@ -1,0 +1,60 @@
+<svg width="1920" height="325" viewBox="0 0 1920 325" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#clip0_1024_4535)">
+    <rect width="1920" height="325" fill="#1E2329"/>
+    <rect x="266" y="53" width="176" height="50" fill="url(#pattern0_1024_4535)" fill-opacity="0.72"/>
+    <text fill="#76808C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="266" y="147.969">© 2025 Valve Corporation. All rights reserved. </tspan>
+      <tspan x="266" y="166.969">Reproduction by Yumin's Slave</tspan>
+    </text>
+    <path d="M480.914 53C467.781 53 457.022 63.1263 456 75.9952L469.4 81.5353C470.535 80.7588 471.907 80.3038 473.382 80.3038C473.514 80.3038 473.646 80.3083 473.777 80.3157L479.735 71.6786C479.735 71.6373 479.735 71.5972 479.735 71.5565C479.735 66.3577 483.964 62.1282 489.163 62.1282C494.362 62.1282 498.591 66.3577 498.591 71.5565C498.591 76.7553 494.362 80.9854 489.163 80.9854C489.091 80.9854 489.02 80.9837 488.949 80.982L480.45 87.046C480.455 87.1562 480.459 87.2686 480.459 87.3805C480.459 91.2834 477.284 94.4573 473.382 94.4573C469.957 94.4573 467.093 92.0125 466.444 88.7748L456.861 84.8131C459.828 95.3067 469.469 103 480.914 103C494.721 103 505.914 91.8068 505.914 78.0008C505.914 64.1927 494.721 53 480.914 53Z" fill="#76808C"/>
+    <path d="M471.666 90.9338L468.595 89.665C469.139 90.7981 470.081 91.747 471.331 92.2681C474.034 93.3938 477.149 92.1115 478.276 89.4068C478.821 88.099 478.824 86.6551 478.283 85.3439C477.744 84.0322 476.725 83.0093 475.416 82.4634C474.117 81.9226 472.725 81.9423 471.502 82.4041L474.674 83.7158C476.667 84.5465 477.61 86.8354 476.779 88.8286C475.95 90.8224 473.659 91.7651 471.666 90.9338Z" fill="#76808C"/>
+    <path d="M495.445 71.5566C495.445 68.0928 492.627 65.2744 489.163 65.2744C485.699 65.2744 482.881 68.0928 482.881 71.5566C482.881 75.0209 485.699 77.8381 489.163 77.8381C492.627 77.8376 495.445 75.0203 495.445 71.5566ZM484.454 71.5458C484.454 68.9394 486.567 66.8269 489.174 66.8269C491.78 66.8269 493.893 68.9394 493.893 71.5458C493.893 74.1523 491.78 76.2648 489.174 76.2648C486.567 76.2648 484.454 74.1517 484.454 71.5458Z" fill="#76808C"/>
+    <path d="M544.787 67.9768L542.519 71.9646C540.771 70.7437 538.403 70.0089 536.336 70.0089C533.973 70.0089 532.511 70.9871 532.511 72.7391C532.511 74.8677 535.108 75.363 538.968 76.7483C543.117 78.2156 545.502 79.9401 545.502 83.7403C545.502 88.9397 541.413 91.8597 535.537 91.8597C532.673 91.8597 529.217 91.1203 526.562 89.5046L528.216 85.0836C530.374 86.2233 532.955 86.8991 535.256 86.8991C538.357 86.8991 539.831 85.7549 539.831 84.0633C539.831 82.1276 537.583 81.5459 533.955 80.3442C529.819 78.9634 526.953 77.1517 526.953 72.9458C526.953 68.2026 530.752 65.4785 536.218 65.4785C540.027 65.4785 543.089 66.6856 544.787 67.9768Z" fill="#76808C"/>
+    <path d="M562.521 70.0602V90.9856H557.179V70.0602H549.426V65.4785H570.252V70.0602H562.521Z" fill="#76808C"/>
+    <path d="M581.513 70.0465V75.7939H591.736V80.3756H581.513V86.3618H593.374V90.9856H576.173V65.4785H593.374V70.0465H581.513Z" fill="#76808C"/>
+    <path d="M605.296 86.0327L603.607 90.9856H598.007L607.571 65.4785H612.948L622.782 90.9849H616.993L615.268 86.0319L605.296 86.0327ZM610.229 71.5627L606.746 81.7755H613.785L610.229 71.5627Z" fill="#76808C"/>
+    <path d="M650.197 75.3377L643.216 90.2424H640.202L633.335 75.4709V90.9856H628.22V65.4785H633.323L641.896 83.8911L650.164 65.4785H655.312V90.9856H650.198L650.197 75.3377Z" fill="#76808C"/>
+    <path d="M665.638 67.254C665.638 69.4461 663.996 70.8124 662.111 70.8124C660.219 70.8124 658.572 69.4461 658.572 67.254C658.572 65.0626 660.219 63.7056 662.111 63.7056C663.997 63.7056 665.638 65.0626 665.638 67.254ZM659.165 67.254C659.165 69.0879 660.487 70.2398 662.111 70.2398C663.729 70.2398 665.045 69.0879 665.045 67.254C665.045 65.4147 663.729 64.2804 662.111 64.2804C660.491 64.2804 659.165 65.4285 659.165 67.254ZM662.16 65.4407C663.074 65.4407 663.382 65.9245 663.382 66.4472C663.382 66.9264 663.098 67.2479 662.752 67.4117L663.572 68.9478H662.901L662.209 67.5862H661.497V68.9478H660.938V65.4407H662.16ZM661.502 67.0726H662.125C662.529 67.0726 662.767 66.8192 662.767 66.5008C662.767 66.1794 662.596 65.9727 662.124 65.9727H661.501V67.0726H661.502Z" fill="#76808C"/>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1423" y="97.9688">Seo Yumin</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1423" y="132.969">Jang Giwon</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1423" y="167.969">Kim Minwoo</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1423" y="202.969">Park Jooyoung</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1423" y="237.969">Kim Hyunseo</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1596.5" y="97.9688">Kwon Youngjun</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1596.5" y="132.969">Kim Minjun</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1596.5" y="167.969">Ko Kyungmin</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1596.5" y="202.969">Kim Sunwoo</tspan>
+    </text>
+    <text fill="#747C86" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
+      <tspan x="1596.5" y="237.969">Park Woohyun</tspan>
+    </text>
+    <text fill="#76808C" xml:space="preserve" style="white-space: pre" font-family="Barlow" font-size="36.5" font-weight="bold" letter-spacing="0em">
+      <tspan x="670" y="90.6">Lite</tspan>
+    </text>
+  </g>
+  <defs>
+    <pattern id="pattern0_1024_4535" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_1024_4535" transform="scale(0.00568182 0.02)"/>
+    </pattern>
+    <clipPath id="clip0_1024_4535">
+      <rect width="1920" height="325" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
