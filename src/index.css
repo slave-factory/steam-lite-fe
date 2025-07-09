@@ -3,14 +3,27 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0e141b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Steam client CSS variables */
+  --Background-Main: #0e141b;
+  --Background-Highlight: #1e2329;
+  --Text-Main: #f3f3f3;
+  --Text-Dim: #76808c;
+  --Color-Primary: #66c0f4;
+  --Color-Secondary: #4b619b;
+  --border-radius: 3px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -26,6 +39,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--Background-Main);
+  overflow-x: auto;
 }
 
 h1 {
