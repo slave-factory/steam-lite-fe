@@ -1,7 +1,29 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
+import Friends from "./Friends";
 
 function Client({ children }: { children?: ReactNode }) {
+  const [isFriendsModalOpen, setIsFriendsModalOpen] = useState(false);
+  const friendsIconRef = useRef<HTMLDivElement>(null);
+
+  const handleFriendsClick = () => {
+    setIsFriendsModalOpen(prev => !prev);
+  };
+
+  const getFriendsIconPosition = () => {
+    if (friendsIconRef.current) {
+      const rect = friendsIconRef.current.getBoundingClientRect();
+      return {
+        top: rect.bottom + window.scrollY + 8,
+        left: rect.left + window.scrollX,
+      };
+    }
+    return { top: 0, left: 0 };
+  };
+
+  const friendsIconPosition = getFriendsIconPosition();
+
   return (
     <ClientContainer>
       <BackgroundImage
@@ -45,7 +67,18 @@ function Client({ children }: { children?: ReactNode }) {
           }}
         />
       </SteamLogo>
-      <FriendsSection>
+      <UserSection>
+        <UserBackground />
+        <UserContent>
+          <UserAvatar image="https://cdn.builder.io/api/v1/image/assets/TEMP/d7f92e4f0a62b01f83ebbff808d367eb442a9bed?width=92" altText="User Avatar" />
+          <UserName>MiNUuuuuu</UserName>
+          <UserBalance>₩ 12,345</UserBalance>
+          <DropdownArrow>
+            {/* 드롭다운 아이콘 SVG 등 */}
+          </DropdownArrow>
+        </UserContent>
+      </UserSection>
+      <FriendsSection ref={friendsIconRef} onClick={handleFriendsClick}>
         <FriendsBackground />
         <FriendsIcon>
           <div
@@ -56,26 +89,12 @@ function Client({ children }: { children?: ReactNode }) {
           />
         </FriendsIcon>
       </FriendsSection>
-      <UserSection>
-        <UserBackground />
-        <UserContent>
-          <UserAvatar
-            image="https://cdn.builder.io/api/v1/image/assets/TEMP/364a3c9e005a49d2da2abac61939f62d10ceabe5?width=62"
-            altText=""
-          />
-          <UserName>MiNUuuuuu</UserName>
-          <UserBalance>₩1,000</UserBalance>
-          <DropdownArrow>
-            <div
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<svg id="I333:2393;18:1020" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" style="width: 20px; height: 20px"> <path d="M7.26668 8.2418L10.5 11.4751L13.7334 8.2418C14.0584 7.9168 14.5834 7.9168 14.9084 8.2418C15.2334 8.5668 15.2334 9.0918 14.9084 9.4168L11.0834 13.2418C10.7584 13.5668 10.2334 13.5668 9.90835 13.2418L6.08335 9.4168C5.75835 9.0918 5.75835 8.5668 6.08335 8.2418C6.40835 7.92513 6.94168 7.9168 7.26668 8.2418Z" fill="#F3F3F3"></path> </svg>',
-              }}
-            />
-          </DropdownArrow>
-        </UserContent>
-      </UserSection>
       {children}
+      <Friends
+        isOpen={isFriendsModalOpen}
+        onClose={() => setIsFriendsModalOpen(false)}
+        position={friendsIconPosition}
+      />
     </ClientContainer>
   );
 }
@@ -247,86 +266,6 @@ const SteamLogo = styled.div`
       height: 14px !important;
       left: 10px !important;
       top: 12px !important;
-    }
-  }
-`;
-
-const FriendsSection = styled.div`
-  display: flex;
-  width: 56px;
-  height: 39px;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 430px;
-  top: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 5;
-
-  &:hover {
-    transform: translateY(-1px);
-
-    ${"" /* Reference to FriendsBackground */}
-    > div:first-child {
-      background-color: rgba(30, 35, 41, 0.9);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  @media (max-width: 1440px) {
-    right: 390px;
-  }
-
-  @media (max-width: 1024px) {
-    right: 340px;
-    top: 8px;
-    width: 48px;
-    height: 34px;
-  }
-
-  @media (max-width: 768px) {
-    right: 300px;
-    top: 7px;
-    width: 44px;
-    height: 32px;
-  }
-
-  @media (max-width: 480px) {
-    display: none;
-  }
-`;
-
-const FriendsBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: var(--border-radius, 3px);
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: var(--Background-Highlight, #1e2329);
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-`;
-
-const FriendsIcon = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & svg {
-    @media (max-width: 1024px) {
-      width: 22px !important;
-      height: 22px !important;
-    }
-
-    @media (max-width: 768px) {
-      width: 20px !important;
-      height: 20px !important;
     }
   }
 `;
@@ -553,6 +492,86 @@ const DropdownArrow = styled.div`
     & svg {
       width: 16px !important;
       height: 16px !important;
+    }
+  }
+`;
+
+const FriendsSection = styled.div`
+  display: flex;
+  width: 56px;
+  height: 39px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 430px;
+  top: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 5;
+
+  &:hover {
+    transform: translateY(-1px);
+
+    ${"" /* Reference to FriendsBackground */}
+    > div:first-child {
+      background-color: rgba(30, 35, 41, 0.9);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    right: 390px;
+  }
+
+  @media (max-width: 1024px) {
+    right: 340px;
+    top: 8px;
+    width: 48px;
+    height: 34px;
+  }
+
+  @media (max-width: 768px) {
+    right: 300px;
+    top: 7px;
+    width: 44px;
+    height: 32px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+const FriendsBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius, 3px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--Background-Highlight, #1e2329);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+const FriendsIcon = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    @media (max-width: 1024px) {
+      width: 22px !important;
+      height: 22px !important;
+    }
+
+    @media (max-width: 768px) {
+      width: 20px !important;
+      height: 20px !important;
     }
   }
 `;
