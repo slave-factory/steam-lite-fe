@@ -19,21 +19,16 @@ const Cart = () => {
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div style={{ backgroundColor: '#0f1c2e', color: 'white', minHeight: '100vh', fontFamily: 'sans-serif' }}>
-      {/* 최상단 내비게이션 */}
-      <header style={{ display: 'flex', alignItems: 'center', padding: '10px 40px', backgroundColor: '#101820', borderBottom: '1px solid #333' }}>
-        <div style={{ fontSize: '20px', fontWeight: 'bold', marginRight: '30px', color: '#67c1f5' }}>
-          STEAM<sup style={{ fontSize: '10px', color: '#ccc' }}>Lite</sup>
-        </div>
-        <nav style={{ display: 'flex', gap: '20px' }}>
-          <span style={{ color: '#67c1f5', cursor: 'pointer' }}>상점</span>
-          <span style={{ color: '#ccc', cursor: 'pointer' }}>라이브러리</span>
-        </nav>
-      </header>
-
-      {/* 본문 */}
-      <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '28px', marginBottom: '30px' }}>카트</h1>
+    <div style={{ fontFamily: 'sans-serif', color: 'white', width: '100%' }}>
+      <div
+        style={{
+          maxWidth: '800px',
+          width: '100%',
+          margin: '0 auto', // 가운데 정렬
+          padding: 0,
+        }}
+      >
+        <h1 style={{ fontSize: '28px', margin: '0 0 30px 0' }}>카트</h1>
 
         {cartItems.map((item) => (
           <div
@@ -52,12 +47,26 @@ const Cart = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                style={{ width: '120px', height: '60px', objectFit: 'cover', marginRight: '20px', borderRadius: '4px' }}
+                style={{
+                  width: '120px',
+                  height: '60px',
+                  objectFit: 'cover',
+                  marginRight: '20px',
+                  borderRadius: '4px',
+                }}
               />
               <span style={{ fontSize: '18px' }}>{item.title}</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <span style={{ fontWeight: 'bold' }}>{item.price.toLocaleString()}원</span>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+              }}
+            >
+              <span style={{ fontWeight: 'bold' }}>
+                {item.price.toLocaleString()}원
+              </span>
               <button
                 onClick={() => handleDelete(item.id)}
                 style={{
@@ -83,12 +92,16 @@ const Cart = () => {
           }}
         >
           <h2 style={{ marginBottom: '20px' }}>합계 금액</h2>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-            <strong style={{ fontSize: '18px' }}>{total.toLocaleString()}원</strong>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <strong style={{ fontSize: '18px' }}>
+              {total.toLocaleString()}원
+            </strong>
             <div>
               <button
                 style={{
@@ -121,16 +134,6 @@ const Cart = () => {
           </div>
         </div>
       </div>
-
-      {/* 푸터 */}
-      <footer style={{ textAlign: 'center', padding: '40px 20px', backgroundColor: '#1a1a1a', marginTop: '60px', color: '#888', fontSize: '14px' }}>
-        <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>VALVE <span style={{ color: '#67c1f5' }}>STEAM</span><sup style={{ fontSize: '10px' }}>Lite</sup></div>
-        <p>© 2025 Valve Corporation. All rights reserved.<br />Reproduction by Yumin's Slave</p>
-        <div style={{ marginTop: '20px', lineHeight: '1.6' }}>
-          <p>Seo Yumin, Jang Giwon, Kim Minwoo, Park Jooyoung, Kim Hyunseo</p>
-          <p>Kwon Youngjun, Kim Minjun, Ko Kyungmin, Kim Sunwoo, Park Woohyun</p>
-        </div>
-      </footer>
     </div>
   );
 };
