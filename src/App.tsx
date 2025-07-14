@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Cart from './components/Cart';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Client from "./components/Client";
+import Footer from "./components/Footer";
+import GameUpload from "./components/GameUpload";
 
 function App() {
   return (
@@ -12,17 +13,7 @@ function App() {
           element={
             <>
               <Client />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <>
-              <Client>
-                <Cart />
-              </Client>
+              <GameUpload />
               <Footer />
             </>
           }

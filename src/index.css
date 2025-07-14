@@ -19,6 +19,8 @@
   --Text-Dim: #76808c;
   --Color-Primary: #66c0f4;
   --Color-Secondary: #4b619b;
+  --Background-Tertiary: #212b45;
+  --Background-Hover: #313843;
   --border-radius: 3px;
 }
 
@@ -40,7 +42,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--Background-Main);
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1 {
