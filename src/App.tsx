@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Client from "./components/Client";
 import Footer from "./components/Footer";
-import GameSelector from "./components/GameSelector";
+import GameDeletionModal from "./components/GameDelete.tsx";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           element={
             <>
               <Client />
-              <GameSelector />
+              <GameDeletionModal />
               <Footer />
             </>
           }
