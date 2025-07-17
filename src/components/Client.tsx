@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 import { ReactNode } from "react";
+>>>>>>> d4464114aaef94cc1479042a359fe3cc4f86945f
 import styled from "styled-components";
 
 function Client({ children }: { children?: ReactNode }) {
@@ -116,11 +119,11 @@ const ClientContainer = styled.div`
 `;
 
 const BackgroundImage = styled.img.attrs<{ image: string; altText: string }>(
-  props => ({
-    src: props.image,
-    alt: props.altText,
+  ({ image, altText }) => ({
+    src: image,
+    alt: altText,
   })
-)`
+)<{ image: string; altText: string }>`
   width: 100%;
   height: 59px;
   position: absolute;
@@ -226,6 +229,9 @@ const SteamLogo = styled.div`
   left: 0;
   top: 0;
   z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   & svg {
     @media (max-width: 1024px) {
@@ -432,11 +438,11 @@ const UserContent = styled.div`
 `;
 
 const UserAvatar = styled.img.attrs<{ image: string; altText: string }>(
-  props => ({
-    src: props.image,
-    alt: props.altText,
+  ({ image, altText }) => ({
+    src: image,
+    alt: altText,
   })
-)`
+)<{ image: string; altText: string }>`
   width: 31px;
   height: 31px;
   border-radius: 4px;

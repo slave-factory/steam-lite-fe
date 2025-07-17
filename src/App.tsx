@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import GamePage from "./components/GamePage";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<GamePage />} />
+      </Routes>
+    </Router>
+=======
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Cart from './components/Cart';
@@ -29,6 +42,7 @@ function App() {
         />
       </Routes>
     </BrowserRouter>
+>>>>>>> d4464114aaef94cc1479042a359fe3cc4f86945f
   );
 }
 
