@@ -17,6 +17,8 @@
   --Background-Highlight: #1e2329;
   --Text-Main: #f3f3f3;
   --Text-Dim: #76808c;
+  --Color-Primary: #66c0f4;
+  --Color-Secondary: #4b619b;
   --border-radius: 3px;
 }
 
@@ -35,7 +37,6 @@ a:hover {
 
 body {
   margin: 0;
-  padding: 0;
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--Background-Main);

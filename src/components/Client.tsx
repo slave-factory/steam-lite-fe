@@ -93,6 +93,7 @@ function Client() {
           userAvatar="https://cdn.builder.io/api/v1/image/assets/TEMP/364a3c9e005a49d2da2abac61939f62d10ceabe5?width=62"
         />
       </UserSection>
+      {children}
     </ClientContainer>
   );
 }
