@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+=======
+import { ReactNode } from "react";
+>>>>>>> d4464114aaef94cc1479042a359fe3cc4f86945f
 import styled from "styled-components";
 
-function Client() {
+function Client({ children }: { children?: ReactNode }) {
   return (
     <ClientContainer>
       <BackgroundImage
@@ -74,6 +78,7 @@ function Client() {
           </DropdownArrow>
         </UserContent>
       </UserSection>
+      {children}
     </ClientContainer>
   );
 }

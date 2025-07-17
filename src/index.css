@@ -15,7 +15,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+<<<<<<< HEAD
   /* Design system CSS variables */
+=======
+  /* Steam client CSS variables */
+  --Background-Main: #0e141b;
+  --Background-Highlight: #1e2329;
+  --Text-Main: #f3f3f3;
+  --Text-Dim: #76808c;
+  --Color-Primary: #66c0f4;
+  --Color-Secondary: #4b619b;
+>>>>>>> d4464114aaef94cc1479042a359fe3cc4f86945f
   --border-radius: 3px;
   --Background-Main: #0e141b;
   --Text-Main: #f3f3f3;
@@ -47,7 +57,6 @@ a:hover {
 
 body {
   margin: 0;
-  padding: 0;
   min-width: 320px;
   min-height: 100vh;
   background: linear-gradient(180deg, #0e141b 7%, #202b3b 39.65%);
