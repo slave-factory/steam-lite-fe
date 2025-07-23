@@ -1,7 +1,35 @@
-import { ReactNode } from "react";
+import * as React from "react";
+import { useEffect, useRef, useState } from "react";
+
 import styled from "styled-components";
 
-function Client({ children }: { children?: ReactNode }) {
+import AccountDropdown from "./AccountDropdown";
+
+function Client() {
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsAccountDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleAccountDropdown = () => {
+    setIsAccountDropdownOpen(!isAccountDropdownOpen);
+  };
+
   return (
     <ClientContainer>
       <BackgroundImage
@@ -56,24 +84,14 @@ function Client({ children }: { children?: ReactNode }) {
           />
         </FriendsIcon>
       </FriendsSection>
-      <UserSection>
-        <UserBackground />
-        <UserContent>
-          <UserAvatar
-            image="https://cdn.builder.io/api/v1/image/assets/TEMP/364a3c9e005a49d2da2abac61939f62d10ceabe5?width=62"
-            altText=""
-          />
-          <UserName>MiNUuuuuu</UserName>
-          <UserBalance>₩1,000</UserBalance>
-          <DropdownArrow>
-            <div
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<svg id="I333:2393;18:1020" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" style="width: 20px; height: 20px"> <path d="M7.26668 8.2418L10.5 11.4751L13.7334 8.2418C14.0584 7.9168 14.5834 7.9168 14.9084 8.2418C15.2334 8.5668 15.2334 9.0918 14.9084 9.4168L11.0834 13.2418C10.7584 13.5668 10.2334 13.5668 9.90835 13.2418L6.08335 9.4168C5.75835 9.0918 5.75835 8.5668 6.08335 8.2418C6.40835 7.92513 6.94168 7.9168 7.26668 8.2418Z" fill="#F3F3F3"></path> </svg>',
-              }}
-            />
-          </DropdownArrow>
-        </UserContent>
+      <UserSection ref={dropdownRef}>
+        <AccountDropdown
+          isOpen={isAccountDropdownOpen}
+          onClose={toggleAccountDropdown}
+          userName="MiNUuuuuu"
+          userBalance="₩1,000"
+          userAvatar="https://cdn.builder.io/api/v1/image/assets/TEMP/364a3c9e005a49d2da2abac61939f62d10ceabe5?width=62"
+        />
       </UserSection>
       {children}
     </ClientContainer>
@@ -333,227 +351,30 @@ const FriendsIcon = styled.div`
 
 const UserSection = styled.div`
   display: flex;
-  height: 39px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
   position: absolute;
-  right: 400px;
+  right: 205px;
   top: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 5;
-
-  &:hover {
-    transform: translateY(-1px);
-
-    ${"" /* Reference to UserBackground */}
-    > div:first-child {
-      background-color: rgba(30, 35, 41, 0.95);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-  }
+  z-index: 50;
 
   @media (max-width: 1440px) {
-    right: 360px;
+    right: 175px;
   }
 
   @media (max-width: 1024px) {
-    right: 280px;
+    right: 135px;
     top: 8px;
-    height: 34px;
   }
 
   @media (max-width: 768px) {
-    right: 240px;
+    right: 105px;
     top: 7px;
-    height: 32px;
   }
 
   @media (max-width: 480px) {
-    right: 180px;
+    right: 65px;
     top: 6px;
-    height: 30px;
-  }
-`;
-
-const UserBackground = styled.div`
-  width: 210px;
-  height: 100%;
-  border-radius: var(--border-radius, 3px);
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: var(--Background-Highlight, #1e2329);
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-
-  @media (max-width: 1024px) {
-    width: 190px;
-  }
-
-  @media (max-width: 768px) {
-    width: 170px;
-  }
-
-  @media (max-width: 480px) {
-    width: 150px;
-  }
-`;
-
-const UserContent = styled.div`
-  display: flex;
-  width: 194px;
-  height: calc(100% - 6px);
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  left: 8px;
-  top: 3px;
-
-  @media (max-width: 1024px) {
-    width: 174px;
-    left: 8px;
-    gap: 8px;
-  }
-
-  @media (max-width: 768px) {
-    width: 154px;
-    left: 8px;
-    gap: 6px;
-  }
-
-  @media (max-width: 480px) {
-    width: 134px;
-    left: 8px;
-    gap: 4px;
-  }
-`;
-
-const UserAvatar = styled.img.attrs<{ image: string; altText: string }>(
-  props => ({
-    src: props.image,
-    alt: props.altText,
-  })
-)`
-  width: 31px;
-  height: 31px;
-  border-radius: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
-  object-fit: cover;
-
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 1024px) {
-    width: 28px;
-    height: 28px;
-  }
-
-  @media (max-width: 768px) {
-    width: 26px;
-    height: 26px;
-  }
-
-  @media (max-width: 480px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-const UserName = styled.div`
-  color: var(--Text-Main, #f3f3f3);
-  font:
-    500 14px Roboto,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex: 1;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 11px;
-  }
-`;
-
-const UserBalance = styled.div`
-  color: var(--Text-Dim, #76808c);
-  font:
-    400 13px Roboto,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: rgba(118, 128, 140, 0.9);
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 11px;
-  }
-
-  @media (max-width: 480px) {
-    display: none;
-  }
-`;
-
-const DropdownArrow = styled.div`
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  border-radius: 2px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: rotate(180deg);
-  }
-
-  & svg {
-    transition: transform 0.2s ease;
-  }
-
-  @media (max-width: 768px) {
-    & svg {
-      width: 18px !important;
-      height: 18px !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    & svg {
-      width: 16px !important;
-      height: 16px !important;
-    }
   }
 `;
 
